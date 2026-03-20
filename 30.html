@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邱崇安的學系歷程 | 醫學系申請</title>
+    <style>
+        /* 基礎設定 */
+        :root {
+            --primary-color: #0056b3; /* 醫療藍 */
+            --secondary-color: #e6f2ff;
+            --text-color: #333;
+            --bg-color: #fafafa;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, 'LiHei Pro', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* 導覽列 */
+        nav {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #003d82;
+        }
+
+        /* 區塊共用設定 */
+        section {
+            padding: 100px 20px 60px; /* 留出 nav 的空間 */
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+        h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* 首頁英雄區塊 */
+        #home {
+            text-align: center;
+            background: linear-gradient(rgba(230, 242, 255, 0.9), rgba(250, 250, 250, 1)), url('https://images.unsplash.com/photo-1532187863486-abf9db61b15c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80') center/cover;
+            padding-top: 150px;
+            padding-bottom: 100px;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* 卡片與照片排版 */
+        .content-flex {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .content-text {
+            flex: 1;
+        }
+        .content-image {
+            flex: 1;
+        }
+        .content-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 表格設定 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .content-flex {
+                flex-direction: column;
+            }
+            nav ul {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#home">首頁總覽</a></li>
+            <li><a href="#stem">理科與學術探究</a></li>
+            <li><a href="#service">社區服務與實踐</a></li>
+            <li><a href="#vision">自我期許</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="邱崇安個人照" class="profile-img">
+        <h1>邱崇安</h1>
+        <p style="font-size: 1.2rem; font-weight: bold; color: #555;">醫學系申請歷程檔案</p>
+        <p style="max-width: 600px; margin: 20px auto;">
+            具備扎實的數理邏輯基礎與深厚的科學探究熱忱。致力於將實驗室裡的冰冷數據，轉化為臨床上溫暖的實際應用。期許透過精準醫療與社區服務的雙重視角，成為一位兼具科學腦與人文心的醫學生。
+        </p>
+    </header>
+
+    <section id="stem">
+        <h2>理科與學術探究 (STEM & Research)</h2>
+        
+        <div class="content-flex">
+            <div class="content-text">
+                <h3>專題報告：Coding the Cure</h3>
+                <p><strong>副標題：How Personalized mRNA Vaccines are Revolutionizing Precision Oncology</strong></p>
+                <p>在本專題中，我深入探討了個人化 mRNA 疫苗在癌症免疫療法中的應用。透過研究 PDAC 腫瘤微環境的物理與生物屏障，我理解了精準醫療在突破傳統治療限制上的潛力。這不僅鍛鍊了我的文獻回顧能力，更堅定了我投入轉譯醫學的決心。</p>
+            </div>
+            <div class="content-image">
+                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="科學實驗照片">
+            </div>
+        </div>
+
+        <h3>進階理科學習軌跡表</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>學習領域</th>
+                    <th>核心探究主題</th>
+                    <th>與醫學之連結 (反思)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>生物與醫學</strong></td>
+                    <td>腫瘤微環境、mRNA 疫苗機制、免疫療法</td>
+                    <td>理解精準醫療的分子基礎，體認到創新療法對癌症病患的重大意義，培養臨床問題的探究思維。</td>
+                </tr>
+                <tr>
+                    <td><strong>進階數學</strong></td>
+                    <td>微積分 (連續函數極限)、線性代數 (矩陣運算與空間轉換)</td>
+                    <td>訓練嚴謹的邏輯推演能力，未來可用於醫學影像處理、流行病學模型及生物統計分析。</td>
+                </tr>
+                <tr>
+                    <td><strong>物理科學</strong></td>
+                    <td>力學 (功與能定理)、電學電路分析</td>
+                    <td>醫學儀器（如心電圖、MRI）皆建構於物理原理之上，扎實基礎有助於未來操作、理解與創新研發。</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="service">
+        <h2>社區服務與實踐 (Community Service)</h2>
+        
+        <div class="content-flex" style="flex-direction: row-reverse;">
+            <div class="content-text">
+                <h3>走入人群的醫學實踐</h3>
+                <p>醫學的核心始終是「人」。在追求學術知識之餘，我積極參與社區服務，將所學轉化為實際的助人行動。透過與不同群體的互動，我學習到如何以同理心傾聽需求，這是在課本上學不到，卻是成為醫師最不可或缺的特質。</p>
+            </div>
+            <div class="content-image">
+                <img src="https://images.unsplash.com/photo-1593113565214-061c2049d520?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="社區服務照片">
+            </div>
+        </div>
+
+        <h3>服務歷程與影響力反思</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>服務項目</th>
+                    <th>服務對象與地點</th>
+                    <th>醫學人文反思</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>社區健康衛教宣導</td>
+                    <td>鄰近社區長者照護中心</td>
+                    <td>體會到健康知識普及的重要性，並學會將艱澀的醫學名詞轉化為長輩能理解的日常語言。</td>
+                </tr>
+                <tr>
+                    <td>弱勢學童課後輔導</td>
+                    <td>在地偏鄉小學</td>
+                    <td>在陪伴過程中培養耐心與觀察力，理解不同社經背景對個人健康與發展的深遠影響。</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="vision">
+        <h2>自我期許 (Vision)</h2>
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="自我期許" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
+            <p style="font-size: 1.1rem; text-align: left;">
+                從微觀的細胞分子到巨觀的社區群體，我的高中歷程是一場不斷探索生命奧秘與社會連結的旅程。我期許自己進入醫學系後，能持續保持對科學的嚴謹態度，並帶著在社區服務中淬鍊出的溫柔，成為一位能醫病也能醫心的良醫。
+            </p>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // 扣除 nav 的高度
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
