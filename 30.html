@@ -7,9 +7,9 @@
     <style>
         /* 科技感醫療配色 */
         :root {
-            --primary-bg: #0f172a; /* 深灰藍 */
+            --primary-bg: #0f172a; 
             --secondary-bg: #1e293b;
-            --accent-color: #0ea5e9; /* 亮青色 */
+            --accent-color: #0ea5e9; 
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --card-bg: #ffffff;
@@ -79,7 +79,7 @@
             text-transform: uppercase;
         }
 
-        /* 首頁：雙欄設計填補空白 */
+        /* 首頁 */
         #home {
             display: flex;
             align-items: center;
@@ -115,7 +115,7 @@
         }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 比例 */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             border-radius: 15px;
@@ -130,7 +130,7 @@
             height: 100%;
         }
 
-        /* 卡片設計 (用於獨特性、理科、服務) */
+        /* 卡片設計 */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -158,7 +158,36 @@
             padding: 25px;
         }
 
-        /* 表格設定 (科技感) */
+        /* 特殊深色卡片 (用於簡報區塊) */
+        .card-dark {
+            background-color: var(--secondary-bg);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            color: var(--text-main);
+        }
+        .card-dark:hover {
+            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.2);
+        }
+
+        /* 按鈕設計 */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+        }
+        .btn:hover {
+            background-color: #0284c7;
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        /* 表格設定 */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -207,6 +236,7 @@
             <li><a href="#home">首頁與動機</a></li>
             <li><a href="#uniqueness">個人獨特性</a></li>
             <li><a href="#stem">理科與學術探究</a></li>
+            <li><a href="#presentation">學術簡報探究</a></li> 
             <li><a href="#service">社區服務實踐</a></li>
             <li><a href="#vision">未來規劃</a></li>
         </ul>
@@ -220,7 +250,7 @@
             
             <h3 style="color: #fff; margin-bottom: 10px;">🔬 學習動機 (Motivation)</h3>
             <p style="color: var(--text-muted); font-size: 1.1rem; text-align: justify;">
-                對生命科學的熱忱，源自於對「未知」的渴望。在探討癌症免疫療法與 PDAC（胰臟癌）腫瘤微環境屏障的過程中，我深刻體會到現代醫學正處於個人化精準醫療的轉捩點。我渴望成為一名醫師科學家（Physician-Scientist），不僅在臨床上運用現有知識拯救生命，更期望能走入實驗室，透過扎實的數理邏輯與分子生物學基礎，為突破現有醫療瓶頸貢獻心力。
+                對生命科學的熱忱，源自於對「未知」的渴望。在探討癌症免疫療法與腫瘤微環境的過程中，我深刻體會到現代醫學正處於個人化精準醫療的轉捩點。我渴望成為一名醫師科學家（Physician-Scientist），不僅在臨床上運用現有知識拯救生命，更期望能走入實驗室，透過扎實的數理邏輯與分子生物學基礎，為突破現有醫療瓶頸貢獻心力。
             </p>
         </div>
         <div class="home-visuals animate-on-scroll" style="transition-delay: 0.2s;">
@@ -238,14 +268,14 @@
                 <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="流體藝術與化學">
                 <div class="card-content">
                     <h3 style="color: var(--primary-bg); margin-top: 0;">理性與感性的交會：流體藝術</h3>
-                    <p>我熱衷於樹脂（Resin）與酒精墨水藝術。在創作 Petri dish art 的過程中，控制酒精濃度、染劑擴散與化學反應的安全防護，宛如進行一場精密的科學實驗。這不僅培養了我的美感，更訓練了我對操作細節的極致要求與耐心。</p>
+                    <p>我熱衷於樹脂（Resin）與酒精墨水藝術。控制酒精濃度、染劑擴散與化學反應的安全防護，宛如進行一場精密的科學實驗。這不僅培養了我的美感，更訓練了我對操作細節的極致要求與耐心。</p>
                 </div>
             </div>
             <div class="card animate-on-scroll" style="transition-delay: 0.2s;">
                 <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="高階數理">
                 <div class="card-content">
                     <h3 style="color: var(--primary-bg); margin-top: 0;">超越框架的數理邏輯思維</h3>
-                    <p>除了生物學，我深入鑽研微積分、線性代數（矩陣運算）以及統計學（如二項式、卜瓦松分配）。在醫療數據爆炸的年代，具備高階數學與物理基礎，使我未來能更從容地跨足醫學統計、流行病學建模與生醫工程領域。</p>
+                    <p>我深入鑽研微積分、線性代數（矩陣運算）以及統計學。在醫療數據爆炸的年代，具備高階數學與物理基礎，使我未來能更從容地跨足醫學統計、流行病學建模與生醫工程領域。</p>
                 </div>
             </div>
         </div>
@@ -253,19 +283,7 @@
 
     <section id="stem">
         <h2 class="animate-on-scroll">理科與學術探究 (STEM & Research)</h2>
-        
-        <div class="card-grid" style="grid-template-columns: 1fr;">
-            <div class="card animate-on-scroll" style="display: flex; flex-direction: row; flex-wrap: wrap;">
-                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="實驗室男性" style="flex: 1; min-width: 300px; height: auto;">
-                <div class="card-content" style="flex: 2; min-width: 300px;">
-                    <h3 style="color: var(--primary-bg); margin-top: 0;">專題報告：Coding the Cure</h3>
-                    <p style="font-weight: bold; color: var(--accent-color);">How Personalized mRNA Vaccines are Revolutionizing Precision Oncology</p>
-                    <p>本專題深入探討個人化 mRNA 疫苗在癌症免疫療法中的機制。從 pcDNA 的建構到入侵選擇（Invasion selection）的評估，我學會了如何有系統地梳理複雜的分子生物學文獻。這項研究讓我堅信，基因科技與精準醫療將是解開癌症這道難題的關鍵鑰匙。</p>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="animate-on-scroll" style="color: #fff; margin-top: 40px;">進階理科學習軌跡表</h3>
+        <h3 class="animate-on-scroll" style="color: #fff; margin-top: 10px;">進階理科學習軌跡表</h3>
         <div class="animate-on-scroll">
             <table>
                 <thead>
@@ -296,6 +314,38 @@
         </div>
     </section>
 
+    <section id="presentation">
+        <h2 class="animate-on-scroll">學術簡報探究 (Presentation)</h2>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+            <div class="card card-dark animate-on-scroll" style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <div class="card-content" style="flex: 1.5; min-width: 300px; padding: 40px;">
+                    
+                    <h3 style="color: var(--accent-color); font-size: 1.8rem; margin-top: 0;">The Dynamics of Lato Lato</h3>
+                    <p style="color: var(--text-muted); font-style: italic; margin-bottom: 25px;">Nonlinear Dynamics, Energy Distribution & Chaos Theory</p>
+                    
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                        <ul style="color: var(--text-main); margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li><strong>探究動機：</strong> 探討 Lato Lato 在垂直振盪下的物理現象，深入分析其能量分佈與運動方程式 [cite: 62, 67, 68]。</li>
+                            <li><strong>研究重點：</strong> 運用 Mathieu 方程式與 Mathieu-Duffing 模型，探討系統在不同初始條件下的穩定狀態與不穩定狀態 [cite: 63, 64, 17, 28]。</li>
+                            <li><strong>主要發現：</strong> 振幅增加是由於 Mathieu 方程式解的指數成長 [cite: 39]。系統對繩長、振幅及頻率等初始條件極度敏感，並可能在特定條件下引發混沌（Chaos）現象 [cite: 41, 42]。</li>
+                        </ul>
+                    </div>
+                    
+                    <h4 style="color: #fff; font-size: 1.2rem; border-left: 4px solid var(--accent-color); padding-left: 10px; margin-bottom: 15px;">🔗 與醫學之深層連結 (Medical Connection)</h4>
+                    <p style="color: var(--text-muted); text-align: justify; line-height: 1.8;">
+                        這份針對非線性動力學的探究，深刻啟發了我對人體生理系統的理解。雖然 Lato Lato 是純物理模型，但其背後的數學基礎（如非線性振盪與混沌理論）與人體的生理節律高度相似。例如，心臟的跳動與神經元的放電同樣屬於複雜的振盪系統；當系統參數跨越穩定邊界而產生混沌現象時 [cite: 41]，在臨床上往往對應著心律不整（Arrhythmia）等病理狀態。這項研究不僅鍛鍊了我處理微分方程的能力，更讓我體認到人體作為複雜系統的不可預測性。正因系統對初始參數極度敏感 [cite: 42]，未來的臨床治療必須如同精準醫療所追求的，量身打造專屬的治療方案，才能在變數中找到使生理系統回歸穩定的最佳解。
+                    </p>
+                    
+                    <a href="https://docs.google.com/presentation/d/1xDp67fahRjPk_INkJLnoZkWR_OAPXG7TcRCTGlVeOFA/edit?usp=drive_link" target="_blank" class="btn">
+                        📄 觀看完整簡報 (View Full Slides)
+                    </a>
+                </div>
+                
+                <img src="https://images.unsplash.com/photo-1636578648123-5e7e01614e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="物理與數據波形示意圖" style="flex: 1; min-width: 300px; object-fit: cover; border-left: 1px solid rgba(14, 165, 233, 0.3);">
+            </div>
+        </div>
+    </section>
+    
     <section id="service">
         <h2 class="animate-on-scroll">社區服務實踐 (Community Service)</h2>
         <div class="card-grid" style="grid-template-columns: 1fr;">
@@ -325,12 +375,12 @@
                         <td>扎實醫學系基礎學科，持續精進大數據分析與程式語言能力。積極爭取進入實驗室參與癌症免疫或轉譯醫學相關研究計畫，培養獨立研究與文獻批判能力。</td>
                     </tr>
                     <tr>
-                        <td><strong>中期規劃<br>(臨床實習與住院醫師)</strong></td>
+                        <td><strong>中期規劃<br>(臨床見實習)</strong></td>
                         <td>在各科見實習中培養敏銳的臨床觀察力。將過去在微積分與統計學的邏輯思維帶入臨床決策中，並積極參與跨領域醫療團隊，學習全人醫療照護。</td>
                     </tr>
                     <tr>
-                        <td><strong>長遠期許<br>(主治醫師與研究員)</strong></td>
-                        <td>成為一名兼具臨床與研究能力的醫師科學家（Physician-Scientist）。期望能結合個人化 mRNA 醫療技術與精準大數據模型，針對難治型癌症（如 PDAC）開發更具突破性的治療方案，回饋社會。</td>
+                        <td><strong>長遠期許<br>(醫師科學家)</strong></td>
+                        <td>期望能結合個人化醫療技術與精準大數據模型，針對難治型疾病開發更具突破性的治療方案，並持續參與公共衛生服務，回饋社會。</td>
                     </tr>
                 </tbody>
             </table>
@@ -353,7 +403,7 @@
             });
         });
 
-        // 滾動時淡入動畫 (Intersection Observer)
+        // 滾動時淡入動畫
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -364,7 +414,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // 動畫只執行一次
+                    observer.unobserve(entry.target); 
                 }
             });
         }, observerOptions);
