@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>邱崇安的學系歷程 | 醫學系申請</title>
     <style>
-        /* 基礎設定 */
+        /* 科技感醫療配色 */
         :root {
-            --primary-color: #0056b3; /* 醫療藍 */
-            --secondary-color: #e6f2ff;
-            --text-color: #333;
-            --bg-color: #fafafa;
+            --primary-bg: #0f172a; /* 深灰藍 */
+            --secondary-bg: #1e293b;
+            --accent-color: #0ea5e9; /* 亮青色 */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: #ffffff;
+            --card-text: #334155;
         }
         
         body {
@@ -18,18 +21,20 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            color: var(--text-main);
+            background-color: var(--primary-bg);
+            overflow-x: hidden;
         }
 
         /* 導覽列 */
         nav {
-            background-color: var(--primary-color);
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.3);
         }
         nav ul {
             list-style: none;
@@ -37,100 +42,160 @@
             padding: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
         nav ul li {
-            margin: 0 15px;
+            margin: 0 10px;
         }
         nav ul li a {
-            color: white;
+            color: var(--text-main);
             text-decoration: none;
-            padding: 15px 20px;
+            padding: 15px 15px;
             display: block;
-            font-weight: bold;
-            transition: background 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
         }
         nav ul li a:hover {
-            background-color: #003d82;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
         }
 
         /* 區塊共用設定 */
         section {
-            padding: 100px 20px 60px; /* 留出 nav 的空間 */
-            max-width: 1000px;
+            padding: 100px 20px 60px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         h1, h2, h3 {
-            color: var(--primary-color);
+            color: var(--accent-color);
+            letter-spacing: 1px;
         }
         h2 {
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.3);
             padding-bottom: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
         }
 
-        /* 首頁英雄區塊 */
+        /* 首頁：雙欄設計填補空白 */
         #home {
-            text-align: center;
-            background: linear-gradient(rgba(230, 242, 255, 0.9), rgba(250, 250, 250, 1)), url('https://images.unsplash.com/photo-1532187863486-abf9db61b15c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80') center/cover;
-            padding-top: 150px;
-            padding-bottom: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            min-height: 80vh;
+            padding-top: 120px;
+        }
+        .home-text {
+            flex: 1.2;
+        }
+        .home-text h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            color: #fff;
+        }
+        .home-text h1 span {
+            color: var(--accent-color);
+        }
+        .home-visuals {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
+            width: 100%;
+            height: 350px;
             object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+            border: 2px solid var(--secondary-bg);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
-        /* 卡片與照片排版 */
-        .content-flex {
-            display: flex;
+        /* 卡片設計 (用於獨特性、理科、服務) */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            align-items: center;
             margin-bottom: 40px;
         }
-        .content-text {
-            flex: 1;
-        }
-        .content-image {
-            flex: 1;
-        }
-        .content-image img {
-            width: 100%;
+        .card {
+            background-color: var(--card-bg);
+            color: var(--card-text);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.3);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 25px;
         }
 
-        /* 表格設定 */
+        /* 表格設定 (科技感) */
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 30px 0;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            overflow: hidden;
         }
         th, td {
             padding: 15px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         th {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: rgba(14, 165, 233, 0.1);
+            color: var(--accent-color);
+            font-weight: bold;
         }
         tr:hover {
-            background-color: var(--secondary-color);
+            background-color: rgba(255,255,255,0.05);
         }
 
-        /* 響應式設計 */
-        @media (max-width: 768px) {
-            .content-flex {
+        /* 動畫 Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 響應式 */
+        @media (max-width: 900px) {
+            #home {
                 flex-direction: column;
-            }
-            nav ul {
-                flex-wrap: wrap;
             }
         }
     </style>
@@ -139,126 +204,173 @@
 
     <nav>
         <ul>
-            <li><a href="#home">首頁總覽</a></li>
+            <li><a href="#home">首頁與動機</a></li>
+            <li><a href="#uniqueness">個人獨特性</a></li>
             <li><a href="#stem">理科與學術探究</a></li>
-            <li><a href="#service">社區服務與實踐</a></li>
-            <li><a href="#vision">自我期許</a></li>
+            <li><a href="#service">社區服務實踐</a></li>
+            <li><a href="#vision">未來規劃</a></li>
         </ul>
     </nav>
 
-    <header id="home">
-        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="邱崇安個人照" class="profile-img">
-        <h1>邱崇安</h1>
-        <p style="font-size: 1.2rem; font-weight: bold; color: #555;">醫學系申請歷程檔案</p>
-        <p style="max-width: 600px; margin: 20px auto;">
-            具備扎實的數理邏輯基礎與深厚的科學探究熱忱。致力於將實驗室裡的冰冷數據，轉化為臨床上溫暖的實際應用。期許透過精準醫療與社區服務的雙重視角，成為一位兼具科學腦與人文心的醫學生。
-        </p>
-    </header>
+    <section id="home">
+        <div class="home-text animate-on-scroll">
+            <p style="color: var(--accent-color); font-weight: bold; margin-bottom: 5px;">Applicant Portfolio</p>
+            <h1>邱崇安 <span>Chong-An</span></h1>
+            <h3 style="color: var(--text-muted); border: none; margin-bottom: 30px;">醫學系申請歷程檔案</h3>
+            
+            <h3 style="color: #fff; margin-bottom: 10px;">🔬 學習動機 (Motivation)</h3>
+            <p style="color: var(--text-muted); font-size: 1.1rem; text-align: justify;">
+                對生命科學的熱忱，源自於對「未知」的渴望。在探討癌症免疫療法與 PDAC（胰臟癌）腫瘤微環境屏障的過程中，我深刻體會到現代醫學正處於個人化精準醫療的轉捩點。我渴望成為一名醫師科學家（Physician-Scientist），不僅在臨床上運用現有知識拯救生命，更期望能走入實驗室，透過扎實的數理邏輯與分子生物學基礎，為突破現有醫療瓶頸貢獻心力。
+            </p>
+        </div>
+        <div class="home-visuals animate-on-scroll" style="transition-delay: 0.2s;">
+            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="邱崇安個人照" class="profile-img">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="uniqueness">
+        <h2 class="animate-on-scroll">個人獨特性 (Uniqueness)</h2>
+        <div class="card-grid">
+            <div class="card animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="流體藝術與化學">
+                <div class="card-content">
+                    <h3 style="color: var(--primary-bg); margin-top: 0;">理性與感性的交會：流體藝術</h3>
+                    <p>我熱衷於樹脂（Resin）與酒精墨水藝術。在創作 Petri dish art 的過程中，控制酒精濃度、染劑擴散與化學反應的安全防護，宛如進行一場精密的科學實驗。這不僅培養了我的美感，更訓練了我對操作細節的極致要求與耐心。</p>
+                </div>
+            </div>
+            <div class="card animate-on-scroll" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="高階數理">
+                <div class="card-content">
+                    <h3 style="color: var(--primary-bg); margin-top: 0;">超越框架的數理邏輯思維</h3>
+                    <p>除了生物學，我深入鑽研微積分、線性代數（矩陣運算）以及統計學（如二項式、卜瓦松分配）。在醫療數據爆炸的年代，具備高階數學與物理基礎，使我未來能更從容地跨足醫學統計、流行病學建模與生醫工程領域。</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="stem">
-        <h2>理科與學術探究 (STEM & Research)</h2>
+        <h2 class="animate-on-scroll">理科與學術探究 (STEM & Research)</h2>
         
-        <div class="content-flex">
-            <div class="content-text">
-                <h3>專題報告：Coding the Cure</h3>
-                <p><strong>副標題：How Personalized mRNA Vaccines are Revolutionizing Precision Oncology</strong></p>
-                <p>在本專題中，我深入探討了個人化 mRNA 疫苗在癌症免疫療法中的應用。透過研究 PDAC 腫瘤微環境的物理與生物屏障，我理解了精準醫療在突破傳統治療限制上的潛力。這不僅鍛鍊了我的文獻回顧能力，更堅定了我投入轉譯醫學的決心。</p>
-            </div>
-            <div class="content-image">
-                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="科學實驗照片">
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+            <div class="card animate-on-scroll" style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="實驗室男性" style="flex: 1; min-width: 300px; height: auto;">
+                <div class="card-content" style="flex: 2; min-width: 300px;">
+                    <h3 style="color: var(--primary-bg); margin-top: 0;">專題報告：Coding the Cure</h3>
+                    <p style="font-weight: bold; color: var(--accent-color);">How Personalized mRNA Vaccines are Revolutionizing Precision Oncology</p>
+                    <p>本專題深入探討個人化 mRNA 疫苗在癌症免疫療法中的機制。從 pcDNA 的建構到入侵選擇（Invasion selection）的評估，我學會了如何有系統地梳理複雜的分子生物學文獻。這項研究讓我堅信，基因科技與精準醫療將是解開癌症這道難題的關鍵鑰匙。</p>
+                </div>
             </div>
         </div>
 
-        <h3>進階理科學習軌跡表</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>學習領域</th>
-                    <th>核心探究主題</th>
-                    <th>與醫學之連結 (反思)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>生物與醫學</strong></td>
-                    <td>腫瘤微環境、mRNA 疫苗機制、免疫療法</td>
-                    <td>理解精準醫療的分子基礎，體認到創新療法對癌症病患的重大意義，培養臨床問題的探究思維。</td>
-                </tr>
-                <tr>
-                    <td><strong>進階數學</strong></td>
-                    <td>微積分 (連續函數極限)、線性代數 (矩陣運算與空間轉換)</td>
-                    <td>訓練嚴謹的邏輯推演能力，未來可用於醫學影像處理、流行病學模型及生物統計分析。</td>
-                </tr>
-                <tr>
-                    <td><strong>物理科學</strong></td>
-                    <td>力學 (功與能定理)、電學電路分析</td>
-                    <td>醫學儀器（如心電圖、MRI）皆建構於物理原理之上，扎實基礎有助於未來操作、理解與創新研發。</td>
-                </tr>
-            </tbody>
-        </table>
+        <h3 class="animate-on-scroll" style="color: #fff; margin-top: 40px;">進階理科學習軌跡表</h3>
+        <div class="animate-on-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>學習領域</th>
+                        <th>核心探究主題</th>
+                        <th>醫學應用與反思</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>進階生物</strong></td>
+                        <td>腫瘤微環境、mRNA 疫苗、免疫療法</td>
+                        <td>理解精準醫療分子基礎，體認創新療法對癌症病患的意義。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>高階數學與統計</strong></td>
+                        <td>微積分、矩陣轉換、卜瓦松/超幾何分配</td>
+                        <td>嚴謹的邏輯推演，未來應用於醫學影像處理與公衛流行病學模型。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>物理科學</strong></td>
+                        <td>力學功與能、電路分析、萬有引力</td>
+                        <td>掌握醫學儀器（如心電圖、MRI）底層物理原理，有助創新研發。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section id="service">
-        <h2>社區服務與實踐 (Community Service)</h2>
-        
-        <div class="content-flex" style="flex-direction: row-reverse;">
-            <div class="content-text">
-                <h3>走入人群的醫學實踐</h3>
-                <p>醫學的核心始終是「人」。在追求學術知識之餘，我積極參與社區服務，將所學轉化為實際的助人行動。透過與不同群體的互動，我學習到如何以同理心傾聽需求，這是在課本上學不到，卻是成為醫師最不可或缺的特質。</p>
-            </div>
-            <div class="content-image">
-                <img src="https://images.unsplash.com/photo-1593113565214-061c2049d520?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="社區服務照片">
+        <h2 class="animate-on-scroll">社區服務實踐 (Community Service)</h2>
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+             <div class="card animate-on-scroll" style="display: flex; flex-direction: row-reverse; flex-wrap: wrap;">
+                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="志工服務" style="flex: 1; min-width: 300px; height: auto;">
+                <div class="card-content" style="flex: 2; min-width: 300px;">
+                    <h3 style="color: var(--primary-bg); margin-top: 0;">走出實驗室的溫度</h3>
+                    <p>醫學的本質是人。在追求尖端科學之餘，我將知識轉化為行動。參與社區服務讓我學會放下艱澀的學術術語，用同理心與病患及弱勢群體溝通。這些實踐經驗不斷提醒我：最好的醫療，不僅是治癒疾病，更是撫慰人心。</p>
+                </div>
             </div>
         </div>
-
-        <h3>服務歷程與影響力反思</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>服務項目</th>
-                    <th>服務對象與地點</th>
-                    <th>醫學人文反思</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>社區健康衛教宣導</td>
-                    <td>鄰近社區長者照護中心</td>
-                    <td>體會到健康知識普及的重要性，並學會將艱澀的醫學名詞轉化為長輩能理解的日常語言。</td>
-                </tr>
-                <tr>
-                    <td>弱勢學童課後輔導</td>
-                    <td>在地偏鄉小學</td>
-                    <td>在陪伴過程中培養耐心與觀察力，理解不同社經背景對個人健康與發展的深遠影響。</td>
-                </tr>
-            </tbody>
-        </table>
     </section>
 
     <section id="vision">
-        <h2>自我期許 (Vision)</h2>
-        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="自我期許" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
-            <p style="font-size: 1.1rem; text-align: left;">
-                從微觀的細胞分子到巨觀的社區群體，我的高中歷程是一場不斷探索生命奧秘與社會連結的旅程。我期許自己進入醫學系後，能持續保持對科學的嚴謹態度，並帶著在社區服務中淬鍊出的溫柔，成為一位能醫病也能醫心的良醫。
-            </p>
+        <h2 class="animate-on-scroll">未來規劃 (Future Plans)</h2>
+        <div class="animate-on-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">階段</th>
+                        <th>規劃目標與執行策略</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>近期目標<br>(大學階段)</strong></td>
+                        <td>扎實醫學系基礎學科，持續精進大數據分析與程式語言能力。積極爭取進入實驗室參與癌症免疫或轉譯醫學相關研究計畫，培養獨立研究與文獻批判能力。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>中期規劃<br>(臨床實習與住院醫師)</strong></td>
+                        <td>在各科見實習中培養敏銳的臨床觀察力。將過去在微積分與統計學的邏輯思維帶入臨床決策中，並積極參與跨領域醫療團隊，學習全人醫療照護。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>長遠期許<br>(主治醫師與研究員)</strong></td>
+                        <td>成為一名兼具臨床與研究能力的醫師科學家（Physician-Scientist）。期望能結合個人化 mRNA 醫療技術與精準大數據模型，針對難治型癌症（如 PDAC）開發更具突破性的治療方案，回饋社會。</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
     <script>
+        // 平滑捲動
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 70, // 扣除 nav 的高度
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        // 滾動時淡入動畫 (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // 動畫只執行一次
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+            observer.observe(element);
         });
     </script>
 </body>
