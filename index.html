@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>邱崇安的醫學歷程 | 醫師科學家專題網頁</title>
-    <!-- 引入字體與圖標 -->
+    <title>Chong-An Chiu | Physician-Scientist Portfolio</title>
+    <!-- Fonts & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=JetBrains+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap');
         
         :root {
             --medical-blue: #0ea5e9;
@@ -17,21 +17,21 @@
         }
 
         body {
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--tech-dark);
             color: #f1f5f9;
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* 幾何背景底紋：減少空白感 */
+        /* Geometric Background Pattern */
         .bg-pattern {
             background-image: 
                 radial-gradient(circle at 2px 2px, rgba(14, 165, 233, 0.05) 1px, transparent 0);
             background-size: 40px 40px;
         }
 
-        /* 毛玻璃卡片 */
+        /* Glassmorphism Card Effect */
         .glass-card {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
@@ -45,7 +45,7 @@
             box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.3);
         }
 
-        /* 動畫效果 */
+        /* Scroll Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -56,7 +56,7 @@
             transform: translateY(0);
         }
 
-        /* 導覽列模糊 */
+        /* Nav Blur */
         nav {
             backdrop-filter: blur(15px);
             background: rgba(15, 23, 42, 0.8);
@@ -68,7 +68,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 針對桌機優化的高度填補 */
         .full-section {
             min-height: 100vh;
             display: flex;
@@ -78,119 +77,117 @@
 </head>
 <body class="bg-pattern">
 
-    <!-- 導覽列 -->
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 border-b border-sky-900/50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl font-bold tracking-tighter">
                 <span class="text-sky-500">CHONG-AN</span>.MED
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#home" class="hover:text-sky-400 transition">首頁</a>
-                <a href="#uniqueness" class="hover:text-sky-400 transition">個人特質</a>
-                <a href="#stem" class="hover:text-sky-400 transition">科學探究</a>
-                <a href="#lato" class="hover:text-sky-400 transition">物理與醫學</a>
-                <a href="#future" class="hover:text-sky-400 transition">未來規劃</a>
+                <a href="#home" class="hover:text-sky-400 transition uppercase tracking-widest">Home</a>
+                <a href="#uniqueness" class="hover:text-sky-400 transition uppercase tracking-widest">Traits</a>
+                <a href="#stem" class="hover:text-sky-400 transition uppercase tracking-widest">STEM</a>
+                <a href="#lato" class="hover:text-sky-400 transition uppercase tracking-widest">Physics & Med</a>
+                <a href="#future" class="hover:text-sky-400 transition uppercase tracking-widest">Future</a>
             </div>
         </div>
     </nav>
 
-    <!-- 首頁 Hero Section -->
+    <!-- Hero Section -->
     <section id="home" class="full-section pt-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-center">
             <div class="md:col-span-7 reveal active">
                 <div class="inline-block px-3 py-1 bg-sky-500/10 border border-sky-500/20 rounded-full text-sky-400 text-xs font-bold mb-4">
-                    未來醫師科學家 | PHYSICIAN-SCIENTIST
+                    ASPIRING PHYSICIAN-SCIENTIST
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                    用<span class="gradient-text">理性數據</span><br>詮釋生命的溫度
+                    Interpreting Life via <br><span class="gradient-text">Rational Data</span>
                 </h1>
                 <p class="text-slate-400 text-lg mb-8 max-w-xl leading-relaxed">
-                    我是邱崇安。對我而言，醫學不只是病理的診斷，更是複雜系統的動態平衡。我致力於結合高階數理分析與轉譯醫學研究，在理性的實驗室數據中，尋找拯救生命的感性解方。
+                    I am Chong-An Chiu. To me, medicine is not just about clinical diagnosis, but the dynamic equilibrium of complex systems. I aim to merge advanced mathematical logic with translational research to find empathetic solutions within cold laboratory data.
                 </p>
                 <div class="flex space-x-4">
-                    <a href="#stem" class="bg-sky-500 hover:bg-sky-600 px-6 py-3 rounded-lg font-bold transition shadow-lg shadow-sky-500/20">探索研究項目</a>
-                    <a href="#future" class="border border-slate-700 hover:bg-slate-800 px-6 py-3 rounded-lg font-bold transition">查看未來規劃</a>
+                    <a href="#stem" class="bg-sky-500 hover:bg-sky-600 px-6 py-3 rounded-lg font-bold transition shadow-lg shadow-sky-500/20">Explore Research</a>
+                    <a href="#future" class="border border-slate-700 hover:bg-slate-800 px-6 py-3 rounded-lg font-bold transition">Future Roadmap</a>
                 </div>
             </div>
             <div class="md:col-span-5 relative reveal active" style="transition-delay: 200ms;">
                 <div class="relative z-10 glass-card p-4">
-                    <!-- 替換為男性專業形象照 -->
-                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800" alt="邱崇安專業照" class="rounded-lg shadow-2xl">
+                    <!-- Male Professional Image -->
+                    <img src="DSC_8336.jpeg" class="rounded-lg shadow-2xl">
                 </div>
-                <!-- 裝飾元素：填補背景空白 -->
                 <div class="absolute -top-10 -right-10 w-40 h-40 bg-sky-500/20 blur-3xl rounded-full"></div>
                 <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-indigo-500/20 blur-3xl rounded-full"></div>
             </div>
         </div>
     </section>
 
-    <!-- 核心亮點：學習動機與個人獨特性 (緊湊排列) -->
+    <!-- Motivation & Uniqueness -->
     <section id="uniqueness" class="py-24 px-6 bg-slate-900/50">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center">個人獨特性 <span class="text-sky-500">&</span> 學習動機</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center uppercase tracking-widest">Uniqueness <span class="text-sky-500">&</span> Motivation</h2>
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- 學習動機 -->
+                <!-- Motivation -->
                 <div class="glass-card p-8 md:col-span-2 reveal">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fas fa-microscope text-sky-500 mr-3"></i> 跨領域探究熱忱
+                        <i class="fas fa-microscope text-sky-500 mr-3"></i> Interdisciplinary Passion
                     </h3>
                     <p class="text-slate-300 leading-relaxed mb-4">
-                        在研究 mRNA 疫苗與 PDAC 腫瘤微環境時，我發現醫學的突破往往來自於「跨界思考」。這份對未知的好奇心，驅使我超越課本框架，主動學習微積分與統計學，試圖用數學模型解析生物體的複雜交互作用。
+                        During my research on mRNA vaccines and the PDAC tumor microenvironment, I realized that medical breakthroughs often arise from interdisciplinary thinking. This curiosity drives me beyond textbook boundaries to self-study Calculus and Statistics, seeking to analyze biological interactions through mathematical modeling.
                     </p>
                     <div class="p-4 bg-sky-500/5 rounded-lg border border-sky-500/10 italic text-sm text-sky-300">
-                        「我渴望在臨床見習中發現問題，並在實驗室中解決問題。」
+                        "I aspire to discover problems in the clinic and solve them in the laboratory."
                     </div>
                 </div>
-                <!-- 流體藝術 -->
+                <!-- Art/Sensibility -->
                 <div class="glass-card p-8 reveal" style="transition-delay: 200ms;">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fas fa-palette text-sky-500 mr-3"></i> 感性：酒精墨水藝術
+                        <i class="fas fa-palette text-sky-500 mr-3"></i> Sensibility: Alcohol Ink Art
                     </h3>
                     <p class="text-slate-300 text-sm mb-4 leading-relaxed">
-                        樹脂與酒精墨水的創作需要精確掌控流體反應。這種在微觀中追求極致平衡的經驗，培養了我的專注力與對細節的敏銳度，這也是外科醫師必備的素養。
+                        Creating resin and alcohol ink art requires precise control over fluid dynamics and chemical reactions. This pursuit of microscopic balance cultivates the extreme focus and sensitivity to detail essential for surgical precision.
                     </p>
-                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=400" class="rounded-lg opacity-80" alt="流體藝術">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=400" class="rounded-lg opacity-80" alt="Fluid Art">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 理科探究：mRNA 專題 -->
+    <!-- STEM Research: mRNA Project -->
     <section id="stem" class="py-24 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-5 reveal">
                     <div class="video-container glass-card overflow-hidden">
-                        <!-- 示意嵌入影片 -->
                         <div class="aspect-video bg-slate-800 flex items-center justify-center relative">
                             <i class="fas fa-play-circle text-6xl text-sky-500/50"></i>
                             <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?mute=1" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <p class="mt-4 text-xs text-slate-500 text-center uppercase tracking-widest">Project Simulation & Oral Presentation</p>
+                    <p class="mt-4 text-xs text-slate-500 text-center uppercase tracking-widest">Research Simulation & Presentation</p>
                 </div>
                 <div class="md:col-span-7 reveal" style="transition-delay: 200ms;">
                     <h2 class="text-sky-500 font-bold mb-2">STEM RESEARCH</h2>
                     <h3 class="text-4xl font-bold mb-6 italic">Coding the Cure</h3>
                     <p class="text-slate-400 mb-6 text-lg">
-                        本專題聚焦於個人化 mRNA 疫苗對精準腫瘤學的革命性影響。透過分析 pcDNA 建構機制與免疫細胞的趨化作用，我探討了如何突破胰臟癌（PDAC）的基質屏障。
+                        This project focuses on the revolutionary impact of personalized mRNA vaccines on precision oncology. By analyzing pcDNA construction mechanisms and immune cell chemotaxis, I explored ways to breach the stromal barrier in Pancreatic Ductal Adenocarcinoma (PDAC).
                     </p>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left">
                             <thead class="bg-sky-500/10 text-sky-400 border-b border-sky-500/20">
                                 <tr>
-                                    <th class="py-3 px-4">研究範疇</th>
-                                    <th class="py-3 px-4">核心發現</th>
+                                    <th class="py-3 px-4">Research Domain</th>
+                                    <th class="py-3 px-4">Core Findings</th>
                                 </tr>
                             </thead>
                             <tbody class="text-slate-300">
                                 <tr class="border-b border-slate-800">
-                                    <td class="py-3 px-4 font-bold">分子生物</td>
-                                    <td class="py-3 px-4">mRNA 序列優化對穩定性與表現率的關鍵影響。</td>
+                                    <td class="py-3 px-4 font-bold">Molecular Biology</td>
+                                    <td class="py-3 px-4">Critical impact of mRNA sequence optimization on stability and expression rates.</td>
                                 </tr>
                                 <tr class="border-b border-slate-800">
-                                    <td class="py-3 px-4 font-bold">免疫學</td>
-                                    <td class="py-3 px-4">腫瘤微環境中 T 細胞浸潤程度與疫苗療效之正相關。</td>
+                                    <td class="py-3 px-4 font-bold">Immunology</td>
+                                    <td class="py-3 px-4">Correlation between T-cell infiltration levels and vaccine efficacy in the tumor microenvironment.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -200,48 +197,47 @@
         </div>
     </section>
 
-    <!-- 重點更新：Lato Lato 物理專題與醫學連結 -->
+    <!-- Lato Lato Physics & Medical Connection -->
     <section id="lato" class="py-24 px-6 bg-slate-900/80 relative">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl font-bold mb-4 uppercase tracking-tighter">學術簡報探究：The Dynamics of Lato Lato</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto italic">將抽象的物理動力學轉化為具象的生理節律思考</p>
+                <h2 class="text-3xl font-bold mb-4 uppercase tracking-tighter">Academic Inquiry: The Dynamics of Lato Lato</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto italic">Translating abstract physical dynamics into physiological rhythm analysis</p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <!-- 簡報摘要 -->
+                <!-- Physics Summary -->
                 <div class="glass-card p-8 border-l-4 border-sky-500 reveal">
-                    <h4 class="text-sky-500 font-bold mb-4">核心物理摘要 (Physics Core)</h4>
+                    <h4 class="text-sky-500 font-bold mb-4 uppercase text-sm">Physics Core</h4>
                     <ul class="space-y-3 text-slate-300 text-sm">
-                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-sky-600"></i>探討 Mathieu 方程式在垂直振盪系統中的穩定性解。</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-sky-600"></i>分析 Lato Lato 在碰撞過程中的能量轉換與耗散。</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-sky-600"></i>模擬混沌系統（Chaos Theory）對初始條件的高度敏感性。</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-sky-600"></i>Analyzed Mathieu's Equation for stability solutions in vertically oscillating systems.</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-sky-600"></i>Investigated energy transfer and dissipation during Lato Lato collisions.</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-sky-600"></i>Simulated Chaos Theory and its extreme sensitivity to initial conditions.</li>
                     </ul>
-                    <a href="https://docs.google.com/presentation/d/1xDp67fahRjPk_INkJLnoZkWR_OAPXG7TcRCTGlVeOFA/edit?usp=drive_link" target="_blank" class="mt-8 inline-block text-xs font-bold text-sky-400 border border-sky-400/30 px-4 py-2 rounded hover:bg-sky-400 hover:text-white transition">
-                        查看完整 Google 簡報 <i class="fas fa-external-link-alt ml-2"></i>
+                    <a href="https://docs.google.com/presentation/d/1xDp67fahRjPk_INkJLnoZkWR_OAPXG7TcRCTGlVeOFA/edit?usp=drive_link" target="_blank" class="mt-8 inline-block text-xs font-bold text-sky-400 border border-sky-400/30 px-4 py-2 rounded hover:bg-sky-400 hover:text-white transition uppercase">
+                        View Full Slide <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
 
-                <!-- 醫學連結 -->
+                <!-- Medical Link -->
                 <div class="glass-card p-8 border-l-4 border-indigo-500 reveal" style="transition-delay: 200ms;">
-                    <h4 class="text-indigo-400 font-bold mb-4">醫學邏輯連結 (Medical Insights)</h4>
+                    <h4 class="text-indigo-400 font-bold mb-4 uppercase text-sm">Medical Logic & Connection</h4>
                     <div class="text-slate-300 text-sm leading-relaxed space-y-4">
                         <p>
-                            <span class="text-white font-bold">● 非線性動力學與生理節律：</span><br>
-                            Lato Lato 的不穩定性與指數成長與人體「心律不整」有高度相似性。心臟起搏點的電生理訊號本質上是非線性振盪系統，理解參數擾動如何導致混沌，有助於預測心律失效的風險。
+                            <span class="text-white font-bold">● Non-linear Dynamics & Biological Rhythms:</span><br>
+                            The instability and exponential growth in the Lato Lato system share high similarity with human "Arrhythmia." Cardiac pacing signals are essentially non-linear oscillatory systems; understanding how parameter perturbations lead to chaos can help predict cardiac failure risks.
                         </p>
                         <p>
-                            <span class="text-white font-bold">● 精準醫療的必然性：</span><br>
-                            既然複雜系統對初始條件如此敏感，醫療診斷便不能僅靠「平均值」。這強化了我對精準醫療的熱情——每一位病患都是獨一無二的參數設定。
+                            <span class="text-white font-bold">● Necessity of Precision Medicine:</span><br>
+                            Since complex systems are so sensitive to initial conditions, clinical diagnosis cannot rely solely on "population averages." This reinforces my passion for Precision Medicine—treating every patient as a unique set of parameters.
                         </p>
                     </div>
                 </div>
             </div>
             
-            <!-- 加入數據圖表美化空間 -->
+            <!-- Graphic Filler -->
             <div class="glass-card p-4 reveal">
                 <div class="h-32 w-full flex items-end justify-between px-4 space-x-1">
-                    <!-- 模擬波形動畫 -->
                     <div class="bg-sky-500/40 w-full animate-pulse" style="height: 40%;"></div>
                     <div class="bg-sky-500/60 w-full" style="height: 70%;"></div>
                     <div class="bg-sky-500/80 w-full animate-pulse" style="height: 90%;"></div>
@@ -255,46 +251,46 @@
         </div>
     </section>
 
-    <!-- 未來規劃與社會責任 -->
+    <!-- Future Roadmap & Social Responsibility -->
     <section id="future" class="py-24 px-6 bg-slate-950">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center underline decoration-sky-500 decoration-4 underline-offset-8">未來規劃與社會責任</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center underline decoration-sky-500 decoration-4 underline-offset-8 uppercase tracking-widest">Future Roadmap & Service</h2>
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="reveal">
-                    <h4 class="text-xl font-bold mb-6 text-sky-400 tracking-widest"><i class="fas fa-map-marked-alt mr-3"></i> 三階段生涯藍圖</h4>
+                    <h4 class="text-xl font-bold mb-6 text-sky-400 tracking-widest uppercase"><i class="fas fa-map-marked-alt mr-3"></i> Career Blueprint</h4>
                     <div class="space-y-6">
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-sky-500/20 rounded flex items-center justify-center shrink-0 mr-4 font-mono font-bold text-sky-500">01</div>
                             <div>
-                                <h5 class="font-bold">大學階段：跨學科打底</h5>
-                                <p class="text-sm text-slate-400">專精基礎醫學，並同步選修高等數據分析與轉譯醫學實驗室實習。</p>
+                                <h5 class="font-bold">Undergraduate: Interdisciplinary Foundation</h5>
+                                <p class="text-sm text-slate-400">Master fundamental medicine while taking advanced data analysis courses and securing translational lab internships.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-sky-500/20 rounded flex items-center justify-center shrink-0 mr-4 font-mono font-bold text-sky-500">02</div>
                             <div>
-                                <h5 class="font-bold">住院醫師階段：臨床洞察</h5>
-                                <p class="text-sm text-slate-400">在臨床實作中發現未被滿足的醫療需求，結合數理邏輯優化診斷流程。</p>
+                                <h5 class="font-bold">Residency: Clinical Insights</h5>
+                                <p class="text-sm text-slate-400">Identify unmet clinical needs during practice and apply mathematical logic to optimize diagnostic workflows.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <div class="w-12 h-12 bg-sky-500/20 rounded flex items-center justify-center shrink-0 mr-4 font-mono font-bold text-sky-500">03</div>
                             <div>
-                                <h5 class="font-bold">長期展望：醫師科學家</h5>
-                                <p class="text-sm text-slate-400">帶領研究團隊，致力於開發針對難治型癌症（如 PDAC）的創新數位療法。</p>
+                                <h5 class="font-bold">Long-term: Physician-Scientist</h5>
+                                <p class="text-sm text-slate-400">Lead a research team dedicated to developing innovative digital therapies for refractory cancers like PDAC.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="reveal" style="transition-delay: 200ms;">
                     <div class="glass-card p-8 h-full">
-                        <h4 class="text-xl font-bold mb-6 text-indigo-400 tracking-widest"><i class="fas fa-hand-holding-heart mr-3"></i> 社區服務實踐</h4>
+                        <h4 class="text-xl font-bold mb-6 text-indigo-400 tracking-widest uppercase"><i class="fas fa-hand-holding-heart mr-3"></i> Community Engagement</h4>
                         <div class="text-slate-300 text-sm leading-loose">
-                            曾在偏鄉進行健康衛教與弱勢輔導。這些經驗提醒我：醫學科技固然重要，但能否將科技轉化為通俗的語言、傳遞給需要的人，才是醫療正義的關鍵。
+                            Participated in rural health education and underprivileged youth tutoring. These experiences remind me: while medical technology is vital, the ability to translate it into accessible language for those in need is the key to medical justice.
                         </div>
                         <div class="mt-8 grid grid-cols-2 gap-4">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400" class="rounded border border-slate-700" alt="醫療服務照">
-                            <img src="https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&q=80&w=400" class="rounded border border-slate-700" alt="衛教宣導照">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400" class="rounded border border-slate-700" alt="Medical Service">
+                            <img src="https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&q=80&w=400" class="rounded border border-slate-700" alt="Community Support">
                         </div>
                     </div>
                 </div>
@@ -308,7 +304,7 @@
     </footer>
 
     <script>
-        // 滾動偵測與動畫啟用
+        // Scroll Animation Logic
         const observerOptions = {
             threshold: 0.1
         };
@@ -323,7 +319,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // 平滑滾動補償導覽列高度
+        // Smooth Scroll Offset for Nav Height
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
