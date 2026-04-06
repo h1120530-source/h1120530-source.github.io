@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chong-An Chiu | Physician-Scientist Executive Portfolio</title>
-    <!-- 引入 Tailwind CSS 與 Font Awesome 圖標 -->
+    <!-- Frameworks & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,7 +14,7 @@
             --medical-blue: #0ea5e9;
             --tech-dark: #020617;
             --tech-slate: #0f172a;
-            --silver: #cbd5e1; /* 銀牌配色 */
+            --silver: #cbd5e1;
         }
 
         body {
@@ -23,34 +23,33 @@
             color: #f8fafc;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            /* 全局基礎字體加大 */
+            font-size: 18px; 
         }
 
-        /* 幾何背景底紋 */
         .bg-pattern {
             background-image: 
                 radial-gradient(circle at 2px 2px, rgba(14, 165, 233, 0.03) 1px, transparent 0);
             background-size: 30px 30px;
         }
 
-        /* 毛玻璃卡片效果 */
         .glass-card {
             background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(14, 165, 233, 0.1);
-            border-radius: 1.25rem;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(14, 165, 233, 0.15);
+            border-radius: 1.5rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
-            border-color: rgba(14, 165, 233, 0.4);
+            border-color: rgba(14, 165, 233, 0.5);
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.6);
         }
 
-        /* 捲動顯現動畫 */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.9s ease-out;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
         }
         .reveal.active {
             opacity: 1;
@@ -63,44 +62,71 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 自定義捲動條 */
-        ::-webkit-scrollbar { width: 6px; }
+        nav {
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--tech-dark); }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--medical-blue); }
 
-        /* 浮動 AI 助理樣式（已縮小對話框） */
-        #ai-assistant {
+        /* Floating AI Assistant (Movable) */
+        #ai-assistant-container {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             z-index: 1000;
         }
-        .chat-window {
+        #chat-window {
             display: none;
-            width: 300px; /* 縮小寬度 */
-            height: 420px; /* 縮小高度 */
-            bottom: 4.5rem;
-            right: 0;
+            width: 320px;
+            height: 480px;
             background: #0f172a;
-            border: 1px solid rgba(14, 165, 233, 0.3);
-            border-radius: 1.25rem;
+            border: 1px solid rgba(14, 165, 233, 0.4);
+            border-radius: 1.5rem;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+            position: fixed;
+            bottom: 5rem;
+            right: 2rem;
+            cursor: default;
+            touch-action: none;
         }
-        .chat-window.active { display: flex; }
+        #chat-window.active { display: flex; }
+        
+        /* Drag Handle Header */
+        #chat-header {
+            cursor: move;
+            user-select: none;
+            background: rgba(15, 23, 42, 0.9);
+        }
+
         .chat-bubble {
-            padding: 8px 12px;
-            border-radius: 0.8rem;
-            margin-bottom: 6px;
+            padding: 10px 14px;
+            border-radius: 1rem;
+            margin-bottom: 8px;
             max-width: 85%;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
         .bot-msg { background: #1e293b; color: #e2e8f0; align-self: flex-start; border-bottom-left-radius: 0.2rem; }
         .user-msg { background: var(--medical-blue); color: white; align-self: flex-end; border-bottom-right-radius: 0.2rem; }
 
-        /* RWD 影片嵌入 */
+        .medal-badge {
+            background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+            color: #020617;
+            padding: 6px 14px;
+            border-radius: 99px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(226, 232, 240, 0.4);
+            text-transform: uppercase;
+        }
+
         .responsive-iframe {
             position: absolute;
             top: 0;
@@ -109,148 +135,135 @@
             height: 100%;
             border: none;
         }
-
-        /* 勳章徽章動畫 */
-        .medal-badge {
-            background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
-            color: #0f172a;
-            padding: 4px 12px;
-            border-radius: 99px;
-            font-weight: 800;
-            font-size: 0.7rem;
-            display: inline-flex;
-            align-items: center;
-            box-shadow: 0 0 15px rgba(226, 232, 240, 0.3);
-        }
     </style>
 </head>
 <body class="bg-pattern">
 
-    <!-- 導覽列 -->
-    <nav class="fixed w-full z-[100] border-b border-sky-900/30 backdrop-blur-xl bg-slate-950/50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black tracking-tighter">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-[100] border-b border-sky-900/30">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="text-3xl font-black tracking-tighter">
                 <span class="text-sky-500 italic">CA</span><span class="text-slate-200">.MED</span>
             </div>
-            <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                <a href="#home" class="hover:text-sky-400 transition">Overview</a>
-                <a href="#uniqueness" class="hover:text-sky-400 transition">Philosophy</a>
+            <div class="hidden md:flex space-x-12 text-[12px] font-bold uppercase tracking-[0.25em] text-slate-400">
+                <a href="#home" class="hover:text-sky-400 transition">Home</a>
+                <a href="#philosophy" class="hover:text-sky-400 transition">Philosophy</a>
                 <a href="#stem" class="hover:text-sky-400 transition">Research</a>
-                <a href="#lato" class="hover:text-sky-400 transition">Dynamics & Med</a>
+                <a href="#lato" class="hover:text-sky-400 transition">Dynamics</a>
                 <a href="#future" class="hover:text-sky-400 transition">Roadmap</a>
             </div>
         </div>
     </nav>
 
-    <!-- 首頁 Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20 px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-24 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
             <div class="lg:col-span-7 reveal active">
-                <div class="flex items-center space-x-3 mb-6">
-                    <span class="h-[1px] w-12 bg-sky-500"></span>
-                    <span class="text-sky-500 text-xs font-black uppercase tracking-[0.3em]">Institutional Portfolio 2025</span>
+                <div class="flex items-center space-x-4 mb-8">
+                    <span class="h-[1.5px] w-16 bg-sky-500"></span>
+                    <span class="text-sky-500 text-sm font-black uppercase tracking-[0.4em]">Institutional Portfolio 2025</span>
                 </div>
-                <h1 class="text-6xl lg:text-8xl font-bold mb-8 leading-[0.9] tracking-tighter">
+                <h1 class="text-7xl lg:text-9xl font-bold mb-10 leading-[0.85] tracking-tighter">
                     Decoding Life via <br><span class="gradient-text">Stochastic Logic</span>
                 </h1>
-                <p class="text-slate-400 text-xl mb-10 max-w-2xl leading-relaxed font-light">
-                    As an aspiring Physician-Scientist, I bridge the chasm between clinical observation and computational precision. My work explores how non-linear dynamics and molecular engineering redefine survival in oncology.
+                <p class="text-slate-400 text-2xl mb-12 max-w-2xl leading-relaxed font-light">
+                    As an aspiring Physician-Scientist, I bridge the chasm between clinical observation and computational precision. My work explores how non-linear dynamics redefine oncology survival.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#stem" class="bg-sky-500 hover:bg-sky-400 text-white px-8 py-4 rounded-full font-bold transition-all shadow-2xl shadow-sky-500/20">Explore Research</a>
-                    <a href="#lato" class="border border-slate-700 hover:bg-slate-800 text-slate-200 px-8 py-4 rounded-full font-bold transition-all">Physics Analysis</a>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#stem" class="bg-sky-500 hover:bg-sky-400 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-2xl shadow-sky-500/30">Explore Research</a>
+                    <a href="#lato" class="border border-slate-700 hover:bg-slate-800 text-slate-200 px-10 py-5 rounded-full font-bold text-lg transition-all">Physics Analysis</a>
                 </div>
             </div>
             <div class="lg:col-span-5 relative reveal active">
-                <div class="glass-card p-3 rotate-1">
-                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" alt="Professional Portrait" class="rounded-xl grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                <div class="glass-card p-4 rotate-1 shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1000" alt="Chong-An Chiu" class="rounded-2xl grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl">
+                </div>
+                <div class="absolute -top-16 -right-16 w-80 h-80 bg-sky-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="py-40 px-6 bg-slate-950/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="lg:col-span-2 glass-card p-14 reveal">
+                    <h2 class="text-sm font-black text-sky-500 uppercase tracking-[0.5em] mb-6">Core Philosophy</h2>
+                    <h3 class="text-5xl font-bold mb-10 italic">The Symbiosis of Clinic & Calculus</h3>
+                    <p class="text-slate-400 leading-relaxed text-xl mb-10">
+                        My academic trajectory is defined by a refusal to treat medicine as a purely descriptive science. By integrating <strong>Stochastic Calculus</strong> and <strong>Multivariable Optimization</strong> into biological inquiry, I seek to quantify the chaotic variables of the tumor microenvironment. 
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div class="border-l-4 border-sky-500/30 pl-8">
+                            <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-widest">Computational Drive</h4>
+                            <p class="text-slate-500 text-lg leading-relaxed">Leveraging higher-dimensional mathematics to facilitate genomic dataset analysis.</p>
+                        </div>
+                        <div class="border-l-4 border-indigo-500/30 pl-8">
+                            <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-widest">Clinical Sensitivity</h4>
+                            <p class="text-slate-500 text-lg leading-relaxed">Applying differential equations to pharmacokinetics for dosage-response optimization.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-10 reveal">
+                    <div class="h-64 mb-8 overflow-hidden rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Art">
+                    </div>
+                    <h4 class="text-sky-400 font-bold mb-4 uppercase tracking-tighter text-lg">Resin Art & Precision</h4>
+                    <p class="text-slate-400 text-base leading-relaxed">
+                        My engagement with <strong>Alcohol Ink Art</strong> is a study in fluid equilibrium. Mastering diffusion patterns mirrors the dexterity required in microsurgical environments.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 個人獨特性與哲學 -->
-    <section id="uniqueness" class="py-32 px-6 bg-slate-950/30">
+    <!-- STEM & mRNA -->
+    <section id="stem" class="py-40 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2 glass-card p-12 reveal">
-                    <h2 class="text-xs font-black text-sky-500 uppercase tracking-[0.4em] mb-4">Core Philosophy</h2>
-                    <h3 class="text-4xl font-bold mb-8 italic">Symbiosis of Clinic & Calculus</h3>
-                    <p class="text-slate-400 leading-relaxed text-lg mb-8">
-                        My trajectory is defined by a refusal to treat medicine as a purely descriptive science. By integrating <strong>Stochastic Calculus</strong> and <strong>Multivariable Optimization</strong> into biological inquiry, I seek to quantify the chaotic variables of the tumor microenvironment. 
-                    </p>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="border-l-2 border-sky-500/30 pl-6">
-                            <h4 class="text-white font-bold mb-2 uppercase text-xs tracking-widest">Inquiry Drive</h4>
-                            <p class="text-slate-500 text-sm">Self-taught Linear Algebra to facilitate the analysis of high-dimensional genomic datasets.</p>
-                        </div>
-                        <div class="border-l-2 border-indigo-500/30 pl-6">
-                            <h4 class="text-white font-bold mb-2 uppercase text-xs tracking-widest">Precision Focus</h4>
-                            <p class="text-slate-500 text-sm">Applying differential equations to pharmacokinetics to optimize dosage-response curves.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card p-8 reveal">
-                    <div class="h-48 mb-6 overflow-hidden rounded-lg">
-                        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Resin Art">
-                    </div>
-                    <h4 class="text-sky-400 font-bold mb-3 uppercase tracking-tighter">Microscopic Precision</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        My engagement with <strong>Alcohol Ink & Resin Art</strong> is a rigorous study in fluid equilibrium. Managing solvent evaporation rates mirrors the dexterity required in microsurgical environments.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- mRNA 研究與數據 -->
-    <section id="stem" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-row gap-16 items-center mb-20">
+            <div class="flex flex-col lg:flex-row gap-20 items-center mb-24">
                 <div class="lg:w-1/2 reveal">
-                    <h2 class="text-sky-500 font-bold text-xs tracking-[0.5em] mb-4 uppercase">Translational Oncology</h2>
-                    <h3 class="text-5xl font-bold mb-8">Coding the Cure: <br><span class="font-light italic text-slate-500 text-3xl text-sky-200">mRNA Synthesis for PDAC</span></h3>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-8">
-                        Evaluating the viability of personalized mRNA-encoded neoantigens as a therapeutic strategy for <strong>PDAC</strong>. My investigation centers on optimizing Lipid Nanoparticle (LNP) delivery systems to bypass fibrotic stroma.
+                    <h2 class="text-sky-500 font-bold text-xs tracking-[0.5em] mb-5 uppercase">Translational Oncology</h2>
+                    <h3 class="text-6xl font-bold mb-10">Coding the Cure: <br><span class="font-light italic text-sky-200/50 text-4xl">mRNA Synthesis for PDAC</span></h3>
+                    <p class="text-slate-400 text-2xl leading-relaxed mb-10">
+                        This research evaluates the efficacy of personalized mRNA-encoded neoantigens as a therapeutic strategy for <strong>Pancreatic Ductal Adenocarcinoma (PDAC)</strong>. The investigation focuses on optimizing LNP delivery to penetrate fibrotic stromal barriers.
                     </p>
-                    <div class="flex space-x-6">
+                    <div class="flex space-x-10">
                         <div class="text-center">
-                            <span class="block text-3xl font-bold text-white">92%</span>
-                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Codon Stability</span>
+                            <span class="block text-4xl font-bold text-white">92%</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-widest">Codon Stability</span>
                         </div>
-                        <div class="w-[1px] h-12 bg-slate-800"></div>
+                        <div class="w-[1.5px] h-16 bg-slate-800"></div>
                         <div class="text-center">
-                            <span class="block text-3xl font-bold text-white">14.2x</span>
-                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Stroma Permeability</span>
+                            <span class="block text-4xl font-bold text-white">14.2x</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-widest">Stroma Permeability</span>
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2 glass-card p-6 reveal">
-                    <h4 class="text-xs font-bold text-slate-400 mb-4 uppercase tracking-[0.2em]">Optimization & Mutation Dataset</h4>
-                    <div class="overflow-hidden rounded-lg border border-slate-800">
-                        <table class="w-full text-xs text-left bg-slate-900/40">
+                <div class="lg:w-1/2 glass-card p-8 reveal">
+                    <div class="overflow-hidden rounded-xl border border-slate-800">
+                        <table class="w-full text-sm text-left bg-slate-900/40">
                             <thead class="bg-slate-800 text-slate-300">
                                 <tr>
-                                    <th class="p-4">Mutation Target</th>
-                                    <th class="p-4">Optimization Strategy</th>
-                                    <th class="p-4">Clinical Metric</th>
+                                    <th class="p-5 font-bold uppercase tracking-widest text-xs">Mutation Target</th>
+                                    <th class="p-5 font-bold uppercase tracking-widest text-xs">Optimization Strategy</th>
+                                    <th class="p-5 font-bold uppercase tracking-widest text-xs">Metric</th>
                                 </tr>
                             </thead>
                             <tbody class="text-slate-400 font-mono">
                                 <tr class="border-b border-slate-800 hover:bg-slate-800/30 transition">
-                                    <td class="p-4">KRAS G12D</td>
-                                    <td class="p-4 italic">Modified Nucleoside (Ψ)</td>
-                                    <td class="p-4 text-sky-400">+28% MHC-I Affinity</td>
+                                    <td class="p-5">KRAS G12D</td>
+                                    <td class="p-5 italic">Modified Nucleoside (Ψ)</td>
+                                    <td class="p-5 text-sky-400 font-bold">+28% MHC-I</td>
                                 </tr>
                                 <tr class="border-b border-slate-800 hover:bg-slate-800/30 transition">
-                                    <td class="p-4">p53 Inact.</td>
-                                    <td class="p-4 italic">Poly-A Tail Elongation</td>
-                                    <td class="p-4 text-sky-400">Half-life Extension</td>
+                                    <td class="p-5">p53 Inact.</td>
+                                    <td class="p-5 italic">Poly-A Elongation</td>
+                                    <td class="p-5 text-sky-400 font-bold">Half-life Ext.</td>
                                 </tr>
                                 <tr class="hover:bg-slate-800/30 transition">
-                                    <td class="p-4">Stroma Fibers</td>
-                                    <td class="p-4 italic">LNP-mmp9 Encoding</td>
-                                    <td class="p-4 text-sky-400">Proteolytic Degrad.</td>
+                                    <td class="p-5">Stroma Fibers</td>
+                                    <td class="p-5 italic">LNP-mmp9 Encoding</td>
+                                    <td class="p-5 text-sky-400 font-bold">Proteolytic Deg.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -260,119 +273,125 @@
         </div>
     </section>
 
-    <!-- Lato Lato 區塊：加入新影片、銀牌紀錄與 IYPT 國手資格 -->
-    <section id="lato" class="py-32 px-6 bg-slate-900/30 relative">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col lg:flex-row gap-12">
+    <!-- Lato Lato & IYPT Accomplishments -->
+    <section id="lato" class="py-40 px-6 bg-slate-900/30 relative">
+        <div class="max-w-7xl mx-auto z-10 relative">
+            <div class="flex flex-col lg:flex-row gap-16">
                 <div class="lg:w-5/12 reveal">
-                    <div class="flex items-center gap-3 mb-4">
-                        <h2 class="text-xs font-black text-indigo-400 uppercase tracking-[0.4em]">Physics x Physiology</h2>
-                        <!-- 銀牌標籤 -->
+                    <div class="flex flex-wrap items-center gap-4 mb-8">
+                        <h2 class="text-xs font-black text-indigo-400 uppercase tracking-[0.5em]">Physics x Physiology</h2>
                         <div class="medal-badge">
-                            <i class="fas fa-medal mr-1"></i> SILVER MEDALIST
+                            <i class="fas fa-medal mr-2"></i> Silver Medalist
                         </div>
                     </div>
-                    <h3 class="text-4xl font-bold mb-6 italic">Non-linear Dynamics: <br>The Lato Lato Inquiry</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        In this award-winning research, I utilized the <strong>Mathieu-Duffing</strong> oscillation model to analyze the vertical oscillation of a dual-pendulum system. This investigation into stochastic sensitivity and chaotic state transitions led to my qualification for the <strong>IYPT National Team Training</strong>.
+                    <h3 class="text-5xl font-bold mb-8 italic">The Dynamics of Lato Lato: <br><span class="text-slate-500 font-light text-3xl">Non-linear Stochastic Analysis</span></h3>
+                    <p class="text-slate-400 text-xl leading-relaxed mb-10">
+                        Utilizing the <strong>Mathieu-Duffing</strong> oscillation model, I investigated vertical oscillation dynamics in dual-pendulum systems. This research achieved the <strong>Silver Medal</strong> at the national level and qualified me for the <strong>IYPT National Team Training</strong>.
                     </p>
                     
-                    <div class="glass-card p-6 border-l-4 border-indigo-500 mb-8">
-                        <h4 class="text-white text-xs font-bold uppercase mb-3"><i class="fas fa-trophy text-indigo-400 mr-2"></i> Academic Recognition</h4>
-                        <ul class="text-slate-400 text-xs space-y-2">
-                            <li class="flex items-start"><i class="fas fa-star text-indigo-500/50 mt-1 mr-2 text-[8px]"></i> Awarded <strong>Silver Medal</strong> for Outstanding Physics Research.</li>
-                            <li class="flex items-start"><i class="fas fa-star text-indigo-500/50 mt-1 mr-2 text-[8px]"></i> Selected for <strong>IYPT National Team Training</strong> (International Young Physicists' Tournament).</li>
+                    <div class="glass-card p-8 border-l-8 border-indigo-500 mb-10 bg-indigo-500/5">
+                        <h4 class="text-white text-sm font-black uppercase mb-4 tracking-widest"><i class="fas fa-award text-indigo-400 mr-2"></i> Academic Distinction</h4>
+                        <ul class="text-slate-400 text-lg space-y-4">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-xs mt-2 mr-4 text-indigo-500"></i> Awarded <strong>Silver Medal</strong> at National Physics Inquiry.</li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-xs mt-2 mr-4 text-indigo-500"></i> Qualified for <strong>IYPT National Team Training</strong> (Taiwan).</li>
                         </ul>
                     </div>
 
-                    <p class="text-slate-500 text-xs leading-relaxed italic">
-                        "Understanding how parameter perturbations lead to chaos in physics provides a blueprint for predicting instability in cardiac repolarization cycles."
+                    <p class="text-slate-500 text-sm leading-relaxed italic border-t border-slate-800 pt-8">
+                        "The transition to chaos in mechanical oscillations mirrors the electrophysiological instability in cardiac arrhythmia."
                     </p>
                 </div>
                 
                 <div class="lg:w-7/12 reveal">
-                    <!-- 替換影片為指定連結，並加入簡報預覽 -->
-                    <div class="grid gap-4">
+                    <div class="grid gap-8">
+                        <!-- IYPT Video -->
                         <div class="glass-card overflow-hidden shadow-2xl relative" style="padding-top: 56.25%;">
-                            <iframe src="https://www.youtube.com/embed/ifv6m7wHmw4" class="responsive-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/ifv6m7wHmw4" class="responsive-iframe" allowfullscreen></iframe>
                         </div>
+                        <!-- Google Slides Embed -->
                         <div class="glass-card overflow-hidden shadow-2xl relative" style="padding-top: 56.25%;">
                             <iframe src="https://docs.google.com/presentation/d/1xDp67fahRjPk_INkJLnoZkWR_OAPXG7TcRCTGlVeOFA/embed?start=false&loop=false&delayms=3000" class="responsive-iframe" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <div class="mt-4 flex justify-between items-center px-2">
-                        <span class="text-[9px] text-slate-600 uppercase tracking-widest font-bold">Research Presentation & Data Simulation</span>
-                        <a href="https://docs.google.com/presentation/d/1xDp67fahRjPk_INkJLnoZkWR_OAPXG7TcRCTGlVeOFA/edit" target="_blank" class="text-sky-500 text-[9px] font-bold uppercase hover:underline">Full Presentation <i class="fas fa-external-link-alt ml-1"></i></a>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 生涯規劃 -->
-    <section id="future" class="py-32 px-6">
+    <!-- Future Roadmap -->
+    <section id="future" class="py-40 px-6">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-16 text-center tracking-tighter uppercase underline decoration-sky-500/50 underline-offset-8">Visionary Roadmap</h2>
-            <div class="space-y-12 reveal">
-                <div class="relative pl-12 border-l border-slate-800 pb-8">
-                    <div class="absolute left-[-5px] top-0 w-2.5 h-2.5 bg-sky-500 rounded-full"></div>
-                    <h4 class="text-sky-400 text-[10px] font-black uppercase mb-2">Short-term: 2025-2029</h4>
-                    <h5 class="text-xl font-bold mb-3 text-white">Undergraduate & Neoantigen Research</h5>
-                    <p class="text-slate-500 text-sm leading-relaxed">Focusing on Molecular Biology while concurrently mastering Stochastic Processes. Seeking placement in translational oncology laboratories to initiate vaccine research.</p>
+            <h2 class="text-4xl font-bold mb-20 text-center tracking-tighter uppercase decoration-sky-500/50 underline decoration-8 underline-offset-[12px]">Professional Horizon</h2>
+            <div class="space-y-16 reveal">
+                <div class="relative pl-16 border-l-2 border-slate-800 pb-12">
+                    <div class="absolute left-[-9px] top-0 w-4 h-4 bg-sky-500 rounded-full shadow-[0_0_15px_rgba(14,165,233,0.8)]"></div>
+                    <h4 class="text-sky-400 text-xs font-black uppercase mb-3 tracking-[0.3em]">Short-term: 2025-2029</h4>
+                    <h5 class="text-3xl font-bold mb-4 text-white">Academic Synthesis</h5>
+                    <p class="text-slate-500 text-xl leading-relaxed">Mastering Medical Science while integrating Stochastic Modeling and Deep Learning. Securing early placement in oncology laboratories for neoantigen research.</p>
                 </div>
-                <div class="relative pl-12 border-l border-slate-800">
-                    <div class="absolute left-[-5px] top-0 w-2.5 h-2.5 bg-indigo-500 rounded-full"></div>
-                    <h4 class="text-indigo-400 text-[10px] font-black uppercase mb-2">Horizon: 2035+</h4>
-                    <h5 class="text-xl font-bold mb-3 text-white">Lead Physician-Scientist</h5>
-                    <p class="text-slate-500 text-sm leading-relaxed">Directing a multi-disciplinary institute specializing in "Bio-Computational Therapeutics." Developing algorithmic vaccines that adapt to real-time mutations.</p>
+                <div class="relative pl-16 border-l-2 border-slate-800">
+                    <div class="absolute left-[-9px] top-0 w-4 h-4 bg-indigo-500 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.8)]"></div>
+                    <h4 class="text-indigo-400 text-xs font-black uppercase mb-3 tracking-[0.3em]">Horizon: 2035+</h4>
+                    <h5 class="text-3xl font-bold mb-4 text-white">Lead Physician-Scientist</h5>
+                    <p class="text-slate-500 text-xl leading-relaxed">Directing a multidisciplinary institute focused on "Algorithmic Vaccines"—therapeutic interventions that adapt to real-time genomic mutations.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 border-t border-slate-900 text-center">
-        <p class="text-[9px] text-slate-700 uppercase tracking-[0.5em] mb-4">Chong-An Chiu &copy; 2025</p>
-        <p class="text-xs text-slate-500 font-light italic">"Bridging the Gap Between Information and Life."</p>
+    <!-- Footer -->
+    <footer class="py-24 border-t border-slate-900 text-center bg-slate-950/20">
+        <p class="text-xs text-slate-700 uppercase tracking-[0.6em] mb-6">Chong-An Chiu &copy; 2025 Portfolio</p>
+        <p class="text-sm text-slate-500 font-light italic">"Bridging the Gap Between Information and Life."</p>
     </footer>
 
-    <!-- AI 助理：具備三個專業功能按鈕（已縮小 UI） -->
-    <div id="ai-assistant">
-        <div id="chat-window" class="chat-window p-4 flex">
-            <div class="flex justify-between items-center border-b border-slate-800 pb-3 mb-4">
+    <!-- AI Assistant Movable UI -->
+    <div id="ai-assistant-container">
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window flex">
+            <!-- Header (Drag Handle) -->
+            <div id="chat-header" class="flex justify-between items-center border-b border-slate-800 px-5 py-4 shrink-0">
                 <div class="flex items-center">
-                    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center mr-3">
-                        <i class="fas fa-robot text-white text-xs"></i>
+                    <div class="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center mr-3 shadow-lg shadow-sky-500/20">
+                        <i class="fas fa-brain text-white text-base"></i>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-white leading-none">Chong-An Bot</p>
-                        <p class="text-[9px] text-sky-500 uppercase font-black">AI Portfolio Guide</p>
+                        <p class="text-sm font-bold text-white leading-none">Chong-An Bot</p>
+                        <p class="text-[10px] text-sky-500 uppercase font-black tracking-widest mt-1">AI Guide</p>
                     </div>
                 </div>
-                <button onclick="toggleChat()" class="text-slate-500 hover:text-white transition"><i class="fas fa-times"></i></button>
-            </div>
-            <div id="chat-content" class="flex-1 overflow-y-auto pr-1 flex flex-col">
-                <div class="chat-bubble bot-msg">Hello! I'm Chong-An's AI guide. How can I assist your review?</div>
-            </div>
-            <!-- 新增的三大功能按鈕 -->
-            <div class="mt-4 flex flex-col gap-1.5">
-                <button onclick="askBot('summary')" class="text-[9px] bg-slate-800 hover:bg-sky-900/40 text-slate-300 px-3 py-2 rounded-lg border border-slate-700 transition flex items-center">
-                    <i class="fas fa-bolt mr-2 text-sky-500"></i> Achievement Summary
+                <button onclick="toggleChat()" class="text-slate-500 hover:text-white transition-colors p-2">
+                    <i class="fas fa-times text-base"></i>
                 </button>
-                <button onclick="askBot('glossary')" class="text-[9px] bg-slate-800 hover:bg-sky-900/40 text-slate-300 px-3 py-2 rounded-lg border border-slate-700 transition flex items-center">
-                    <i class="fas fa-book-medical mr-2 text-sky-500"></i> Technical Glossary
+            </div>
+            
+            <!-- Messages Area -->
+            <div id="chat-content" class="flex-1 overflow-y-auto px-5 py-4 flex flex-col custom-scrollbar bg-slate-900/20">
+                <div class="chat-bubble bot-msg">Welcome. I am the AI guide for Chong-An's research portfolio. Feel free to drag this window anywhere.</div>
+            </div>
+            
+            <!-- Interaction Buttons -->
+            <div class="p-4 bg-slate-950/40 border-t border-slate-800 flex flex-col gap-2">
+                <button onclick="askBot('summary')" class="text-[11px] bg-slate-800 hover:bg-sky-900/40 text-slate-300 px-4 py-3 rounded-xl border border-slate-700 transition flex items-center group">
+                    <i class="fas fa-bolt mr-3 text-sky-500 group-hover:scale-125 transition"></i> Achievement Summary
                 </button>
-                <button onclick="askBot('bridge')" class="text-[9px] bg-slate-800 hover:bg-sky-900/40 text-slate-300 px-3 py-2 rounded-lg border border-slate-700 transition flex items-center">
-                    <i class="fas fa-link mr-2 text-sky-500"></i> Physics-Med Bridge
+                <button onclick="askBot('glossary')" class="text-[11px] bg-slate-800 hover:bg-sky-900/40 text-slate-300 px-4 py-3 rounded-xl border border-slate-700 transition flex items-center group">
+                    <i class="fas fa-book-medical mr-3 text-sky-500 group-hover:scale-125 transition"></i> Technical Glossary
+                </button>
+                <button onclick="askBot('bridge')" class="text-[11px] bg-slate-800 hover:bg-sky-900/40 text-slate-300 px-4 py-3 rounded-xl border border-slate-700 transition flex items-center group">
+                    <i class="fas fa-link mr-3 text-sky-500 group-hover:scale-125 transition"></i> Physics-Med Bridge
                 </button>
             </div>
         </div>
-        <button onclick="toggleChat()" class="w-12 h-12 bg-sky-500 hover:bg-sky-400 rounded-full flex items-center justify-center shadow-2xl shadow-sky-500/50 transition transform hover:scale-110">
-            <i class="fas fa-brain text-white text-lg"></i>
+        
+        <!-- Toggle Button -->
+        <button onclick="toggleChat()" id="chat-toggle-btn" class="w-16 h-16 bg-sky-500 hover:bg-sky-400 rounded-full flex items-center justify-center shadow-2xl shadow-sky-500/50 transition transform hover:scale-110 active:scale-95">
+            <i class="fas fa-comments text-white text-2xl"></i>
         </button>
     </div>
 
     <script>
-        // 捲動揭曉邏輯
+        // --- Scroll Reveal Animations ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -381,56 +400,89 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // 平滑捲動
+        // --- Smooth Scrolling Offset ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                if (target) window.scrollTo({ top: target.offsetTop - 90, behavior: 'smooth' });
             });
         });
 
-        // AI 助理專業功能邏輯
+        // --- AI Assistant Drag & Logic ---
         const chatWindow = document.getElementById('chat-window');
+        const chatHeader = document.getElementById('chat-header');
         const chatContent = document.getElementById('chat-content');
 
-        function toggleChat() {
-            chatWindow.classList.toggle('active');
+        function toggleChat() { 
+            chatWindow.classList.toggle('active'); 
+            // Reset position when opened if needed, or keep last
         }
 
-        function askBot(type) {
-            let question = "";
-            let response = "";
+        // Draggable Logic
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
 
+        chatHeader.addEventListener("mousedown", dragStart);
+        document.addEventListener("mousemove", drag);
+        document.addEventListener("mouseup", dragEnd);
+
+        function dragStart(e) {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+            if (e.target === chatHeader || chatHeader.contains(e.target)) {
+                isDragging = true;
+            }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                xOffset = currentX;
+                yOffset = currentY;
+                setTranslate(currentX, currentY, chatWindow);
+            }
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+        }
+
+        function dragEnd(e) {
+            isDragging = false;
+        }
+
+        // AI Bot Interaction
+        function askBot(type) {
+            let question = ""; let response = "";
             switch(type) {
                 case 'summary':
-                    question = "Show me the top highlights.";
-                    response = "Chong-An is a Silver Medalist in Physics research and has qualified for the IYPT National Team Training. He also maintains 92% codon stability in his mRNA vaccine research.";
+                    question = "Show key highlights.";
+                    response = "Chong-An is an IYPT Silver Medalist and National Team Training qualifier. His mRNA research achieved 92% codon stability for therapeutic models.";
                     break;
                 case 'glossary':
-                    question = "Define technical terms.";
-                    response = "PDAC refers to Pancreatic Cancer; Mathieu Equation is used to solve non-linear oscillations; LNP is the delivery system for mRNA into cells.";
+                    question = "Explain terminology.";
+                    response = "PDAC: Pancreatic Cancer. Mathieu Equation: A differential equation used for parametric resonance. LNP: Lipid Nanoparticles used for mRNA delivery.";
                     break;
                 case 'bridge':
-                    question = "Explain the Physics-Med link.";
-                    response = "By studying the chaos in Lato Lato oscillations (Physics), Chong-An creates models to predict instability in human cardiac rhythms (Medicine).";
+                    question = "Why Physics & Medicine?";
+                    response = "He uses Mathieu-Duffing dynamics to model cardiac arrhythmia instability, bridging the gap between non-linear physics and clinical diagnostics.";
                     break;
             }
-
-            // 加入使用者訊息
-            const userDiv = document.createElement('div');
-            userDiv.className = 'chat-bubble user-msg';
-            userDiv.innerText = question;
-            chatContent.appendChild(userDiv);
-
-            // 模擬 Bot 回覆
+            const userDiv = document.createElement('div'); userDiv.className = 'chat-bubble user-msg';
+            userDiv.innerText = question; chatContent.appendChild(userDiv);
             setTimeout(() => {
-                const botDiv = document.createElement('div');
-                botDiv.className = 'chat-bubble bot-msg';
-                botDiv.innerText = response;
-                chatContent.appendChild(botDiv);
+                const botDiv = document.createElement('div'); botDiv.className = 'chat-bubble bot-msg';
+                botDiv.innerText = response; chatContent.appendChild(botDiv);
                 chatContent.scrollTop = chatContent.scrollHeight;
-            }, 500);
+            }, 400);
         }
     </script>
 </body>
